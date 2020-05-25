@@ -1,0 +1,27 @@
+body {
+    background-color: #e2e2e2;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+    margin: 4% 4% 4% 4%;
+}
+.header{
+    float: left;
+    text-align: left;
+}
+
+button {
+    background-color: #e2e2e2;
+    float: right;
+    width: 10%;
+    margin: 1em 1em 1em 1em;
+    font-size: 1.2em;
+    border-radius: 1em;
+    border: 2px solid rgb(0, 0, 0);
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 0); 
+    border-color: rgb(0, 0, 0);
+    color: white;
+  }
