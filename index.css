@@ -50,12 +50,12 @@ button:hover, a.button:hover {
 }
 
 #quilt{
-    float: left;
-    width: 70%;
-    height: 50%;
+    width: 60em;
+    height: 40em;
     margin-left: 15%;
     margin-right: 15%;
     background-color: rgb(0,0,0);
+    display: inline-block;
 }
 
 h3 {
@@ -67,6 +67,6 @@ h3 {
 }
 
 .hidden {
-    display:none;
+    display:none !important;
 }
 
