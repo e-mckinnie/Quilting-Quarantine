@@ -5,9 +5,9 @@ body {
     margin: 4% 4% 4% 4%;
 }
 
-#header{
-    float: left;
+header{
     text-align: left;
+    float: left;
 }
 
 button{
