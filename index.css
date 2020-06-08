@@ -56,9 +56,25 @@ button:hover, a.button:hover {
     margin-right: 15%;
     background-color: rgb(0,0,0);
     display: inline-block;
+    color: white;
+    position: relative;
+}
+
+.square{
+    position: absolute;
+}
+
+#black_square{
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
 }
 
 h3 {
+    text-align: center;
+}
+
+h4{
     text-align: center;
 }
 
