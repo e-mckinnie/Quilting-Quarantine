@@ -1,18 +1,23 @@
 (function () {
     'use strict';
     function $(id) { return document.getElementById(id);}
+    var knit_squares = ["blue", "green", "pink", "yellow", "purple", "red"];
 
     window.onload = function(){
-        getQuilt();
-        $("home-button").onclick = getQuilt;
-        $("about-button").onclick = getAbout;
+        loadQuilt();
+        showQuilt();
+        $("home-button").onclick = showQuilt;
+        $("about-button").onclick = showAbout;
     };
 
-    function getQuilt(){
+    //shows quilt and hides about page
+    function showQuilt(){
         $("quilt").classList.remove("hidden");
         $("about-info").classList.add("hidden");
+    }
 
-        /*
+    //generates the quilt
+    function loadQuilt(){
         var videos = getVideos();
         var num_black_squares = getNumBlackSquares(videos.length);
         var num_per_side = Math.sqrt(num_black_squares + videos.length);
@@ -20,13 +25,15 @@
 
         makeVideoSquares(videos, square_dimensions);
         makeBlackSquares(num_black_squares, square_dimensions);
-        positionSquares(num_per_side, square_dimensions);*/
+        positionSquares(num_per_side, square_dimensions);
     }
 
+    //returns array of YouTube links to be displayed
     function getVideos(){
         return [];
     }
 
+    //calculates width and height of each square
     function getSquareDimensions(num_per_side){
         var div_height = $("quilt").offsetHeight;
         var div_width = $("quilt").offsetWidth;
@@ -55,10 +62,16 @@
             var square = document.createElement("div");
             square.style.width = square_dimensions[0] + "px";
             square.style.height = square_dimensions[1] + "px";
+
+            var index = Math.floor(Math.random()*knit_squares.length);
+            square.style.backgroundImage = "url(images/" + knit_squares[index] + ".jpg)";
+            square.style.backgroundSize = "cover";
+            
             var url = document.createElement("iframe");
             url.setAttribute("src", videos[i]);
-            url.setAttribute("width", square_dimensions[0] + "");
-            url.setAttribute("height", square_dimensions[1] + "");
+            url.setAttribute("width", Math.floor(0.8*square_dimensions[0]) + "");
+            url.setAttribute("height", Math.floor(0.8*square_dimensions[1]) + "");
+
             square.appendChild(url);
             square.className = "square";
             $("quilt").appendChild(square);
@@ -77,6 +90,7 @@
         }
     }
 
+    //positions black and video squares within quilt
     function positionSquares(num_per_side, square_dimensions){
         var positions = getPositions(num_per_side, square_dimensions);
         var all_squares = document.querySelectorAll(".square");
@@ -112,8 +126,8 @@
         return indices;
     }
 
-    //updates about page
-    function getAbout(){
+    //shows about page and hides quilt
+    function showAbout(){
         $("about-info").classList.remove("hidden");
         $("quilt").classList.add("hidden");
     }
