@@ -14,6 +14,10 @@
     function showQuilt(){
         $("quilt").classList.remove("hidden");
         $("about-info").classList.add("hidden");
+        $("single").classList.add("hidden");
+        while ($("single").firstChild) { 
+            $("single").removeChild($("single").firstChild);
+        }
     }
 
     //generates the quilt
@@ -67,14 +71,36 @@
             square.style.backgroundImage = "url(images/" + knit_squares[index] + ".jpg)";
             square.style.backgroundSize = "cover";
             
-            var url = document.createElement("iframe");
-            url.setAttribute("src", videos[i]);
+            var url = document.createElement("img");
+            url.setAttribute("src", videos[i][4]);
             url.setAttribute("width", Math.floor(0.8*square_dimensions[0]) + "");
             url.setAttribute("height", Math.floor(0.8*square_dimensions[1]) + "");
 
             square.appendChild(url);
             square.className = "square";
+            square.onclick = showSingleView(videos[i], index);
             $("quilt").appendChild(square);
+        }
+    }
+
+    function showSingleView(video_info, knit_index){
+        return function() {
+            $("single").classList.remove("hidden");
+            $("about-info").classList.add("hidden");
+            $("quilt").classList.add("hidden");
+            
+            var name = document.createElement("h2");
+            name.innerHTML = video_info[0] + ", " + video_info[1];
+            var location = document.createElement("h3");
+            location.innerHTML = video_info[2];
+            var link = document.createElement("iframe");
+            link.setAttribute("src", video_info[3])
+            link.setAttribute("width", "550em");
+            link.setAttribute("height", "350em");
+            $("single").appendChild(name);
+            $("single").appendChild(location);
+            $("single").appendChild(link);
+            $("single").style.backgroundImage = "url(images/" + knit_squares[knit_index] + ".jpg)";
         }
     }
 
@@ -130,6 +156,10 @@
     function showAbout(){
         $("about-info").classList.remove("hidden");
         $("quilt").classList.add("hidden");
+        $("single").classList.add("hidden");
+        while ($("single").firstChild) { 
+            $("single").removeChild($("single").firstChild);
+        }
     }
 
 
