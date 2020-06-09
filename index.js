@@ -68,7 +68,7 @@
             square.style.height = square_dimensions[1] + "px";
 
             var index = Math.floor(Math.random()*knit_squares.length);
-            square.style.backgroundImage = "url(images/" + knit_squares[index] + ".jpg)";
+            square.style.backgroundImage = "url(knit images/" + knit_squares[index] + ".jpg)";
             square.style.backgroundSize = "cover";
             
             var url = document.createElement("img");
