@@ -68,7 +68,7 @@
             square.style.height = square_dimensions[1] + "px";
 
             var index = Math.floor(Math.random()*knit_squares.length);
-            square.style.backgroundImage = "url(knit images/" + knit_squares[index] + ".jpg)";
+            square.style.backgroundImage = "url(knit_images/" + knit_squares[index] + ".jpg)";
             square.style.backgroundSize = "cover";
             
             var url = document.createElement("img");
@@ -97,6 +97,7 @@
             link.setAttribute("src", video_info[3])
             link.setAttribute("width", "550em");
             link.setAttribute("height", "350em");
+
             $("single").appendChild(name);
             $("single").appendChild(location);
             $("single").appendChild(link);
