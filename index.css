@@ -57,6 +57,7 @@ button:hover, a.button:hover {
     display: inline-block;
     padding: 5%;
     background-size: cover;
+    color: white;
 }
 
 #quilt{

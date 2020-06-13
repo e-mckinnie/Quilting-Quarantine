@@ -34,7 +34,8 @@
 
     //returns array of YouTube links to be displayed
     function getVideos(){
-        return [];
+        return [["Parker Kennedy", "22", "Hood River, OR", "https://youtube.com/embed/7enIGhoTjkU", "https://img.youtube.com/vi/7enIGhoTjkU/0.jpg"],
+                ["Ian Good", "22", "Everett, WA", "https://youtube.com/embed/l7ZUOJ5_Z1c", "https://img.youtube.com/vi/l7ZUOJ5_Z1c/0.jpg"]];
     }
 
     //calculates width and height of each square
@@ -97,11 +98,12 @@
             link.setAttribute("src", video_info[3])
             link.setAttribute("width", "550em");
             link.setAttribute("height", "350em");
+            link.setAttribute("allowfullscreen", "true");
 
+            $("single").style.backgroundImage = "url(knit_images/" + knit_squares[knit_index] + ".jpg)";
             $("single").appendChild(name);
             $("single").appendChild(location);
             $("single").appendChild(link);
-            $("single").style.backgroundImage = "url(images/" + knit_squares[knit_index] + ".jpg)";
         }
     }
 
